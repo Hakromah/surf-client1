@@ -34,7 +34,7 @@ export default async function SingleEventRoute({
 }: {
    params: BrokenNextJsParams;
 }) {
-   const slug = params.slug;
+   const slug = await params.slug;
    const { event, blocks } = await loader(slug);
 
    return (

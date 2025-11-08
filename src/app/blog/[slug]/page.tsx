@@ -70,7 +70,7 @@ export default async function SingleBlogRoute({
 }: {
    params: BrokenNextJsParams;
 }) {
-   const slug = params.slug;
+   const slug = await params.slug;
    const { article, blocks } = await loader(slug);
    const { title, author, publishedAt, description, image } = article;
 

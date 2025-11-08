@@ -24,7 +24,7 @@ export default async function DynamicPageRoute({ params
 	params: BrokenNextJsParams
 }) {
 	// The code inside remains clean and synchronous, as 'params.slug' is accessible.
-	const slug = params.slug;
+	const slug = await params.slug;
 
 	const { blocks } = await loader(slug);
 	return <BlockRenderer blocks={blocks} />;
