@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+	--font-sans: "Inter", sans-serif;
+	--font-heading: "Poppins", sans-serif;
+	--header-height: 120px;
+}
+
+body {
+	font-family: var(--font-sans);
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@media (max-width: 768px) {
+	:root {
+		--header-height: 100px;
+	}
+}
+
+/* If you have a sticky header, you might also need this for smooth scrolling */
+html {
+	scroll-behavior: smooth;
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+.animate-slideIn {
+	animation: slideIn 0.4s ease-out forwards;
+}
