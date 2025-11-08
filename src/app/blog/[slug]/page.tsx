@@ -9,9 +9,9 @@ import { BlockRenderer } from "@/components/BlockRenderer";
 import { Card, type CardProps } from "@/components/Card";
 import { ContentList } from "@/components/ContentList";
 
-interface PageProps {
-   params: { slug: string };
-}
+// interface PageProps {
+//    params: { slug: string };
+// }
 
 async function loader(slug: string) {
    const { data } = await getContentBySlug(slug, "/api/articles");
@@ -57,7 +57,19 @@ function ArticleOverview({
 
 const BlogCard = (props: Readonly<CardProps>) => <Card {...props} basePath="blog" />;
 
-export default async function SingleBlogRoute({ params }: PageProps) {
+type BrokenNextJsParams = { slug: string } & {
+   // Add the properties the compiler is complaining are missing from Promise<any>
+   then: never;
+   catch: never;
+   finally: never;
+   [Symbol.toStringTag]: 'Promise';
+};
+
+export default async function SingleBlogRoute({
+   params
+}: {
+   params: BrokenNextJsParams;
+}) {
    const slug = params.slug;
    const { article, blocks } = await loader(slug);
    const { title, author, publishedAt, description, image } = article;

@@ -12,15 +12,28 @@ async function loader(slug: string) {
    return { event: event as EventProps, blocks: event?.blocks };
 }
 
-interface ParamsProps {
-   params: { slug: string }
-}
+// interface ParamsProps {
+//    params: { slug: string }
+// }
 
 const EventCard = (props: Readonly<CardProps>) => (
    <Card {...props} basePath="events" />
 );
 
-export default async function SingleEventRoute({ params }: ParamsProps) {
+type BrokenNextJsParams = { slug: string } & {
+   // Add the properties the compiler is complaining are missing from Promise<any>
+   then: never;
+   catch: never;
+   finally: never;
+   [Symbol.toStringTag]: 'Promise';
+};
+
+
+export default async function SingleEventRoute({
+   params
+}: {
+   params: BrokenNextJsParams;
+}) {
    const slug = params.slug;
    const { event, blocks } = await loader(slug);
 

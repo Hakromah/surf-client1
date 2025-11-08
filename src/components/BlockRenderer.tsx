@@ -14,7 +14,7 @@ export function BlockRenderer({ blocks }: { blocks: Block[] }) {
 	return (
 		<>
 			{blocks.map((block, index) => {
-				// Create a guaranteed unique key by combining id and index
+				// Create a guaranteed unique key by combining id and index , (((".next/types/**/*.ts")))
 				const uniqueKey = `${block.id}-${index}`;
 				switch (block.__component) {
 					case "blocks.hero-section":
