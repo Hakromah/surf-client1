@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ContentList } from "@/components/ContentList";
 import { Card, type CardProps } from "@/components/Card";
 

@@ -19,7 +19,7 @@ export default async function BlogRoute({ searchParams }: PageProps) {
   const { page, query } = await searchParams;
   const { blocks } = await loader("blog");
 
-  return <div className="container mx-auto px-4 pt-[calc(var(--header-height))] pb-16 lg:pb-24 w-full">
+  return <div className="container mx-auto px-5 pt-[calc(var(--header-height))] pb-16 lg:pb-24 w-full">
     <BlockRenderer blocks={blocks} />
     <ContentList
       headline="Checkout Our Latest Blog Posts"
