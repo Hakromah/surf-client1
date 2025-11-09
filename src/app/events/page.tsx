@@ -31,7 +31,7 @@ export default async function AllEventsRoute({
    const { event, blocks } = await loader("history-of-surfing");
 
    return (
-      <div className="container mx-auto px-4 pt-[calc(var(--header-height))] pb-16 lg:pb-24 w-full">
+      <div className="container mx-auto px-4 pt-[calc(var(--header-height))] pb-16 lg:pb-24 w-full bg-amber-600">
          <div className="event-page pt-[5rem]">
             <EventSignupForm blocks={blocks} eventId={event.documentId} />
          </div>

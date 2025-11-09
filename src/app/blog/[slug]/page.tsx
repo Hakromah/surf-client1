@@ -9,10 +9,6 @@ import { BlockRenderer } from "@/components/BlockRenderer";
 import { Card, type CardProps } from "@/components/Card";
 import { ContentList } from "@/components/ContentList";
 
-// interface PageProps {
-//    params: { slug: string };
-// }
-
 async function loader(slug: string) {
    const { data } = await getContentBySlug(slug, "/api/articles");
    const article = data[0]; // Assuming the article is the first item in the returned data array
